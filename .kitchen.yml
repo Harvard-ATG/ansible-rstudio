@@ -13,13 +13,7 @@ provisioner:
   require_ansible_repo: true
   ansible_verbose: true
   ansible_version: latest
-  extra_vars:
-    a: b
-
-# Uncomment the following verifier to leverage Inspec instead of Busser (the
-# default verifier)
-# verifier:
-#   name: inspec
+  require_chef_for_busser: false
 
 platforms:
 - name: ubuntu-14.04
@@ -31,3 +25,5 @@ platforms:
     provision_command:
       - /usr/bin/apt-get update
       - /usr/bin/apt-get install apt-transport-https net-tools -y
+verifier:
+  ruby_bindir: '/usr/bin'

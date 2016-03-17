@@ -1,5 +1,6 @@
 ---
-- name: install packages
-sudo: true
+- name: Add Cran repo
+#  sudo: true
   apt_repository: repo='deb https://mirrors.nics.utk.edu/cran/bin/linux/ubuntu trusty/' state=present
-  apt: r-base update_cache=yes
+- name: Install r base
+  apt: name=r-base update_cache=yes

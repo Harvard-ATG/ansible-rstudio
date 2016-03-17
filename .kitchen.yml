@@ -4,7 +4,7 @@ driver:
   privileged: true
   use_sudo: false
   forward:
-    - 80
+    - 8787
 
 provisioner:
   name: ansible_playbook
@@ -25,5 +25,9 @@ platforms:
     provision_command:
       - /usr/bin/apt-get update
       - /usr/bin/apt-get install apt-transport-https net-tools -y
+
 verifier:
   ruby_bindir: '/usr/bin'
+
+suites:
+  - name: default

@@ -17,4 +17,6 @@
   file:
     dest: /etc/rstudio/rserver.conf
 - name: Create system user for rstudio.
-  user: name=test_user password=booomersandchicken
+  user:
+    name: test_user
+    password: $6$rounds=656000$Lwvp3y.OmNi8k1Yc$oUeCYK.nJgVTL1hVCZ967z7qMNjhd.ug4zac5LmMPaRxs./oT.71jWHsVrDWuXbOMiBFhSYz/oSDmTFh9N./c.

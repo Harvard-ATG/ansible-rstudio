@@ -11,7 +11,7 @@
 - name: Install other required pacakges for aws.s3
   apt: name={{ item }}
   with_items:
-    - curl
+    - libcurl4-gnutls-dev
     - libssl-dev
     - r-cran-xml
 - name: downloading rstudio

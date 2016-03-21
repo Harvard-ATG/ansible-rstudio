@@ -9,7 +9,7 @@
 - name: Install r base
   apt: name=r-base update_cache=yes
 - name: Install other required pacakges for aws.s3
-  apt: name= {{ item }}
+  apt: name={{ item }}
   with_items:
     - curl
     - openssl
@@ -26,5 +26,5 @@
     name: test_user
     password: $6$rounds=656000$Lwvp3y.OmNi8k1Yc$oUeCYK.nJgVTL1hVCZ967z7qMNjhd.ug4zac5LmMPaRxs./oT.71jWHsVrDWuXbOMiBFhSYz/oSDmTFh9N./c.
 - name: install rProfile.site
-file:
-  dest: /etc/R/Rprofile.site
+  file:
+    dest: /etc/R/Rprofile.site

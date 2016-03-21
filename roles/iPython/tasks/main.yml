@@ -1,3 +1,5 @@
 ---
+- name: install latest version of pip.
+  shell: curl https://bootstrap.pypa.io/get-pip.py | python
 - name: install iPython via Pip
   pip: name=iPython

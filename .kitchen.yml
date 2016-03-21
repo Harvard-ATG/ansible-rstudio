@@ -14,7 +14,7 @@ provisioner:
   ansible_verbose: true
   # ansible_version: latest
   require_chef_for_busser: false
-  playbook: site.yml
+  playbook: rstudio-servers.yml
 
 platforms:
 - name: ubuntu-14.04

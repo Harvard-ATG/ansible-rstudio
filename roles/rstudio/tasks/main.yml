@@ -8,6 +8,11 @@
   apt_key: keyserver=keyserver.ubuntu.com id=E084DAB9 
 - name: Install r base
   apt: name=r-base update_cache=yes
+- name: Install other required pacakges for aws.s3
+  apt: name= {{ item }}
+  with_items:
+    - curl
+    - openssl
 - name: downloading rstudio
 #get_url: url=https://download2.rstudio.org/rstudio-server-0.99.892-amd64.deb dest=/tmp/rs.deb validate_certs=no checksum=md5:f1c7b0838352a9048d32d38256d8d916
   shell: curl -sL https://download2.rstudio.org/rstudio-server-0.99.892-amd64.deb -O creates=/tmp/rstudio-server-0.99.892-amd64.deb chdir=/tmp
@@ -20,3 +25,6 @@
   user:
     name: test_user
     password: $6$rounds=656000$Lwvp3y.OmNi8k1Yc$oUeCYK.nJgVTL1hVCZ967z7qMNjhd.ug4zac5LmMPaRxs./oT.71jWHsVrDWuXbOMiBFhSYz/oSDmTFh9N./c.
+- name: install rProfile.site
+file:
+  dest: /etc/R/Rprofile.site

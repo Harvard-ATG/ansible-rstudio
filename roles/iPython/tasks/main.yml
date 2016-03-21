@@ -1,0 +1,3 @@
+---
+- name: install iPython via Pip
+  pip: name=iPython

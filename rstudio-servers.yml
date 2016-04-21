@@ -7,6 +7,7 @@
     - lib: "/opt/rstudio-server/lib"
     - src: "/opt/rstudio-server/src"
     - rstudio_ver: 0.99.892
+    - s3fs_repo: "{{ src }}/s3fs_repo"
 
   roles:
     - common

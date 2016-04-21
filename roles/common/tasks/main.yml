@@ -6,9 +6,9 @@
 - name: install latest version of pip.
   shell:
     cmd: curl https://bootstrap.pypa.io/get-pip.py | python
-    creates: pip
+    creates: /usr/local/bin/pip
 - name: create common dirs
-  file: name={{ item }} state=directory recursive=yes
+  file: name={{ item }} state=directory
   with_items:
     - "{{ lib }}"
     - "{{ src }}"

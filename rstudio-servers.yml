@@ -3,7 +3,13 @@
 
 - hosts: rstudio-servers 
   remote_user: root
+  vars:
+    - lib: "/opt/rstudio-server/lib"
+    - src: "/opt/rstudio-server/src"
+    - rstudio_ver: 0.99.892
 
   roles:
+    - common
     - rstudio
     - iPython
+    - s3fs-fuse

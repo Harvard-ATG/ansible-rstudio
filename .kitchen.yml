@@ -1,10 +1,6 @@
 ---
 driver:
-  name: docker
-  privileged: true
-  use_sudo: false
-  forward:
-    - 8787
+  name: vagrant
 
 provisioner:
   name: ansible_playbook
@@ -18,14 +14,14 @@ provisioner:
 
 platforms:
 - name: ubuntu-14.04
-  driver:
-    image: ubuntu-upstart:14.04
-    platform: ubuntu
-    disable_upstart: false
-    run_command: /sbin/init
-    provision_command:
-      - /usr/bin/apt-get update
-      - /usr/bin/apt-get install apt-transport-https net-tools -y
+  driver_plugin: vagrant
+  driver_config:
+    box: "ubuntu/trusty64"
+    network:
+      - ["forwarded_port", {guest: 8787, host: 8787}]
+    cache:
+      auto_detect: true
+      scope: ":box"
 
 verifier:
   ruby_bindir: '/usr/bin'

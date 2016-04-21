@@ -1,0 +1,16 @@
+---
+# built against ubuntu 14.04 LTS
+# assumes apt
+- name: get build depts
+  apt: name={{ item }} update_cache=yes
+  with_items:
+    - automake
+    - autotools-dev
+    - g++
+    - git
+    - libcurl4-gnutls-dev
+    - libfuse-dev
+    - libssl-dev
+    - libxml2-dev
+    - make
+    - pkg-config

@@ -19,24 +19,24 @@
     repo: https://github.com/s3fs-fuse/s3fs-fuse.git
     dest: "{{ s3fs_repo }}"
 - name: run s3fs automake
-  shell:
+  command: ./autogen.sh
+  args:
     chdir: "{{ s3fs_repo }}"
-    cmd: ./autogen.sh
     creates: "{{ s3fs_repo }}/configure"
 - name: run s3fs configure
-  shell:
+  command: ./configure
+  args:
     chdir: "{{ s3fs_repo }}"
-    cmd: ./configure
     creates: "{{ s3fs_repo }}/Makefile"
 - name: Compile s3fs    
-  shell:
+  command: make
+  args:
     chdir: "{{ s3fs_repo }}"
-    cmd: make
     creates: "{{ s3fs_repo }}/src/s3fs"
 - name: install s3fs
-  shell:
+  command: make install
+  args:
     chdir: "{{ s3fs_repo }}"
-    cmd: make install
     creates: /usr/local/bin/s3fs
 
 ## use when moving to ansible 2

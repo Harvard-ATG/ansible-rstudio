@@ -16,10 +16,10 @@
     - r-cran-xml
 - name: downloading rstudio
 #get_url: url=https://download2.rstudio.org/rstudio-server-{{ rstudio_ver }}-amd64.deb dest=/tmp/rs.deb validate_certs=no checksum=md5:f1c7b0838352a9048d32d38256d8d916
-  shell:
-    cmd: curl -sL https://download2.rstudio.org/rstudio-server-{{ rstudio_ver }}-amd64.deb -O
+  command: "curl -LO https://download2.rstudio.org/rstudio-server-{{ rstudio_ver }}-amd64.deb"
+  args:
+    chdir: "{{ lib }}/"
     creates: "{{ lib }}/rstudio-server-{{ rstudio_ver }}-amd64.deb"
-    chdir: "{{ lib }}"
 - name: install rstudio server
   apt: deb={{ lib  }}/rstudio-server-{{ rstudio_ver }}-amd64.deb 
 - name: add prepopulated rserver config file.
